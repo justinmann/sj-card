@@ -1,2 +1,3 @@
-json library: https://github.com/Tencent/rapidjson
-fix console.write()
+json object
+json array
+json bool
