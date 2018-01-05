@@ -22,9 +22,9 @@
         {
             "label": "gcc",
             "type": "shell",
-            "command": "gcc -g main.c -I. -o ${workspaceFolderBasename}",
+            "command": "g++ -g main.cpp -I. -o ${workspaceFolderBasename}",
             "windows": {
-                "command": "gcc -g main.c -I. -o ${workspaceFolderBasename}.exe"                
+                "command": "g++ -g main.cpp -I. -o ${workspaceFolderBasename}.exe"                
             },
             "dependsOn" : "sjc",
             "group": {
