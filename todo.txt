@@ -1,0 +1,2 @@
+json library: https://github.com/Tencent/rapidjson
+fix console.write()
