@@ -1,4 +1,4 @@
-console.writeLine("hello world")
+library "release-1.0:https://github.com/justinmann/sj-lib-json.git"
 
 #writer(
     write2(s : 'string)'void
@@ -37,6 +37,12 @@ hypertext(
         writer.write2(">")
     }
 ) { this }
+
+text : "{\"project\":\"rapidjson\",\"stars\":10}"
+data2 : document_load(text)
+v : data2["stars"].asi32()
+console.writeLine(v.asString())
+console.writeLine(data2["project"].asString())
 
 h : hypertext(heap consoleWriter() as #writer)
 h.tag("html", { "id" : "12" })
