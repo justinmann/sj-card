@@ -1,11 +1,11 @@
 library "release-1.0:https://github.com/justinmann/sj-lib-json.git"
 
 #writer(
-    write2(s : 'string)'void
+    write(s : 'string)'void
 )
 
 consoleWriter #writer(
-    write2(s : 'string) {
+    write(s : 'string) {
         console.write(s)
         void
     }
@@ -15,31 +15,31 @@ hypertext(
     writer : 'heap #writer
 
     tag(childTagName : 'string, attrs : empty'hash![string, string], cb : empty'(:hypertext)void) {
-        writer.write2("<")
-        writer.write2(childTagName)
+        writer.write("<")
+        writer.write(childTagName)
         ifValid attrs {
             attrs.each(^{
-                writer.write2(" ")
-                writer.write2(_1)
-                writer.write2("=\"")
-                writer.write2(_2)
-                writer.write2("\"")
+                writer.write(" ")
+                writer.write(_1)
+                writer.write("=\"")
+                writer.write(_2)
+                writer.write("\"")
             })
         }
-        writer.write2(">")
+        writer.write(">")
 
         ifValid cb {
             cb(parent)
         }
 
-        writer.write2("</")
-        writer.write2(childTagName)
-        writer.write2(">")
+        writer.write("</")
+        writer.write(childTagName)
+        writer.write(">")
     }
 ) { this }
 
 text : "{\"project\":\"rapidjson\",\"stars\":10}"
-data2 : document_load(text)
+data2 : json.document_load(text)
 v : data2["stars"].asi32()
 console.writeLine(v.asString())
 console.writeLine(data2["project"].asString())
