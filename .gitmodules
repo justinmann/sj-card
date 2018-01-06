@@ -2,7 +2,3 @@
 	path = lib/sj-lib-common
 	url = https://github.com/justinmann/sj-lib-common.git
 	branch = release-1.0
-[submodule "lib/sj-lib-json"]
-	path = lib/sj-lib-json
-	url = https://github.com/justinmann/sj-lib-json.git
-	branch = release-1.0
