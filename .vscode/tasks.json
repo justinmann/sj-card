@@ -6,7 +6,7 @@
         {
             "label": "sjc",
             "type": "shell",
-            "command": "../sj/sjc main.sj --no-lines",
+            "command": "../sj/sjc main.sj --no-lines --c-file=main.cpp",
             "promptOnClose": true,
             "group": "build",
             "presentation": {
@@ -23,14 +23,51 @@
             "label": "gcc",
             "type": "shell",
             "command": "g++ -g main.cpp -I. -o ${workspaceFolderBasename}",
-            "windows": {
-                "command": "g++ -g main.cpp -I. -o ${workspaceFolderBasename}.exe"                
-            },
             "dependsOn" : "sjc",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "gcc-release",
+            "type": "shell",
+            "command": "g++ -O3 -g main.cpp -I. -o ${workspaceFolderBasename}",
+            "dependsOn" : "sjc",
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "gcc-profiler",
+            "type": "shell",
+            "command": "g++ -O3 -pg main.cpp -I. -o ${workspaceFolderBasename}",
+            "dependsOn" : "sjc",
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "./${workspaceFolderBasename}.exe",
+            "dependsOn" : "gcc-profiler",
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "profile",
+            "type": "shell",
+            "command": "gprof ${workspaceFolderBasename}.exe > prof.stats",
+            "dependsOn" : "run",
+            "group": "build",
             "problemMatcher": [
                 "$gcc"
             ]
