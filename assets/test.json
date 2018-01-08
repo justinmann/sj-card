@@ -1,0 +1,14 @@
+{
+    "title" : "This is a title",
+    "parentalAdvisory" : "This is a parental advisory",
+    "formatList" : [
+        "Format 1",
+        "Format 2"
+    ],
+    "hasAdultText" : true,
+    "strings" : {
+        "adult_17481" : "Adult Text",
+        "dp_product_info_energy_class" : "Energy Class Level"
+    },
+    "energyEfficiencyClass" : "Energy Class"
+}
