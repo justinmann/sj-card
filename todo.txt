@@ -1,5 +1,4 @@
 json parser
-find leak
 
 root["hello"]?? as json.list
 root.each(^{
