@@ -1,15 +1,19 @@
-hypertext(
+hyperscript(
     writer : 'heap #writer
 
-    tag(childTagName : 'string, attrs : empty'hash![string, string], cb : empty'(:hypertext)void) {
+    tag(
+        childTagName : 'string
+        attrs : empty'array!tuple2![string, string]
+        cb : empty'(:hyperscript)void
+    ) {
         writer.write("<")
         writer.write(childTagName)
         ifValid attrs {
             attrs.each(^{
                 writer.write(" ")
-                writer.write(_1)
+                writer.write(_.item1)
                 writer.write("=\"")
-                writer.write(_2)
+                writer.write(_.item2)
                 writer.write("\"")
             })
         }
