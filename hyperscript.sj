@@ -29,7 +29,7 @@ hyperscript(
     }
 
     txt(s : 'string) {
-        writer.write(s.escapeHtml())
+        writer.write(s) //.escapeHtml())
     }
 
     raw(s : 'string) {
